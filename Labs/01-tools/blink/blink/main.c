@@ -11,7 +11,10 @@
 
 /* Defines -----------------------------------------------------------*/
 #define LED_GREEN   PB5     // AVR pin where green LED is connected
-#define SHORT_DELAY 1000      // Delay in miliseconds
+#define SHORTSPACE_DELAY 500
+#define SHORT_DELAY 500
+#define LONG_DELAY 2200
+#define SPACE_DELAY 5000    // Delay in miliseconds
 #ifndef F_CPU
 #define F_CPU 16000000      // CPU frequency in Hz required for delay func
 #endif
@@ -41,12 +44,72 @@ int main(void)
     // Infinite loop
     while (1)
     {
-        // Pause several miliseconds
-        _delay_ms(SHORT_DELAY);
+		
+        
+		PORTB = PORTB ^ (1<<LED_GREEN); // xor
+		_delay_ms(LONG_DELAY);
+		PORTB = PORTB ^ (1<<LED_GREEN);
+		
+		
+		_delay_ms(SHORTSPACE_DELAY);
+		
+		
+		PORTB = PORTB ^ (1<<LED_GREEN);
+		_delay_ms(SHORT_DELAY);
+		PORTB = PORTB ^ (1<<LED_GREEN);
+		
+		_delay_ms(SHORTSPACE_DELAY);
+		
+		PORTB = PORTB ^ (1<<LED_GREEN); // xor 
+		_delay_ms(SHORT_DELAY);
+		PORTB = PORTB ^ (1<<LED_GREEN); // xor
+		
+		_delay_ms(SPACE_DELAY);
+		
+		
+		PORTB = PORTB ^ (1<<LED_GREEN); // xor 
+		_delay_ms(SHORT_DELAY);
+		PORTB = PORTB ^ (1<<LED_GREEN); // xor
+		
+		_delay_ms(SPACE_DELAY);
+		
+	
+		PORTB = PORTB ^ (1<<LED_GREEN); // xor 
+		_delay_ms(SHORT_DELAY);
+		PORTB = PORTB ^ (1<<LED_GREEN); // xor
+		
+		_delay_ms(SHORTSPACE_DELAY);
+		
+		PORTB = PORTB ^ (1<<LED_GREEN); // xor
+		_delay_ms(SHORT_DELAY);
+		PORTB = PORTB ^ (1<<LED_GREEN); // xor
+		
+		_delay_ms(SHORTSPACE_DELAY);
+		
+		PORTB = PORTB ^ (1<<LED_GREEN); // xor
+		_delay_ms(LONG_DELAY);
+		PORTB = PORTB ^ (1<<LED_GREEN); // xor
+		
+		_delay_ms(SHORTSPACE_DELAY);
+		
+		PORTB = PORTB ^ (1<<LED_GREEN); // xor
+		_delay_ms(LONG_DELAY);
+		PORTB = PORTB ^ (1<<LED_GREEN); // xor
+		
+		_delay_ms(SHORTSPACE_DELAY);
 
+		PORTB = PORTB ^ (1<<LED_GREEN); // xor
+		_delay_ms(LONG_DELAY);
+		PORTB = PORTB ^ (1<<LED_GREEN); // xor
+		
+		_delay_ms(SPACE_DELAY);
+
+
+		
+		
         // Invert LED in Data Register
         // PORTB = PORTB xor 0010 0000
-        PORTB = PORTB ^ (1<<LED_GREEN); // xor 
+       // PORTB = PORTB ^ (1<<LED_GREEN); // xor 
     }
 
     // Will never reach this
