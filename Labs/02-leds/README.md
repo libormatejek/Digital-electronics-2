@@ -1,4 +1,4 @@
-@@ -2,14 +2,19 @@
+
 
 ## Preparation tasks (done before the lab at home)
 
@@ -19,9 +19,19 @@ Draw two basic ways to connect a LED to the output pin of the microcontroller: L
 
 &nbsp;
 
-[Calculate LED resistor value](https://electronicsclub.info/leds.htm) for typical red and blue LEDs.
+![](Images/ohms_law.png)
 
-@ -31,68 +36,13 @@ R = \frac{V_{SUPPLY}-V_{LED}}{I} =
+| **LED color** | **Supply voltage** | **LED current** | **LED voltage** | **Resistor value** |
+| :-: | :-: | :-: | :-: | :-: |
+| red | 5&nbsp;V | 20&nbsp;mA | 2&nbsp;V | 350(360)&nbsp;Ohm|
+| blue | 5&nbsp;V | 20&nbsp;mA | 4&nbsp;V | 50(51)&nbsp;Ohm|
+
+
+
+
+
+
+
 Draw the basic ways to connect a push button to the microcontroller input pin: button active-low, button active-high.
 
 &nbsp;
