@@ -13,13 +13,8 @@ Draw two basic ways to connect a LED to the output pin of the microcontroller: L
 
 &nbsp;
 
-&nbsp;
 
-&nbsp;
-
-&nbsp;
-
-![](Images/ohms_law.png)
+![](Images/ohms_law.gif)
 
 | **LED color** | **Supply voltage** | **LED current** | **LED voltage** | **Resistor value** |
 | :-: | :-: | :-: | :-: | :-: |
