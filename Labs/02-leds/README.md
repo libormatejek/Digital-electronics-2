@@ -83,7 +83,7 @@ See [schematic of Arduino Uno board](../../Docs/arduino_shield.pdf) in docs fold
 |   | 3 | Yes (Arduino pin A3) |
 |   | 4 | Yes (Arduino pin A4) |
 |   | 5 | Yes (Arduino pin A5) |
-|   | 6 | Doesnt have |
+|   | 6 | No |
 |   | 7 | Doesnt have |
 | D | 0 | Yes (Arduino pin RX<-0) |
 |   | 1 | Yes (Arduino pin TX->1) |
