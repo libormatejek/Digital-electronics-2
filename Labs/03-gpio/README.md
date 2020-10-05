@@ -19,7 +19,7 @@ Study [this article](https://www.programiz.com/c-programming/c-user-defined-func
 #include <avr/io.h>
 
 // Function declaration (prototype)
-uint16_t calculate(uint8_t, ...    );
+uint16_t calculate(uint8_t, uint8_t);
 
 int main(void)
 {
@@ -28,19 +28,18 @@ int main(void)
     uint16_t c;
 
     // Function call
-    c = ...      (a, b);
+    c = calculate(a, b);
 
     return 0;
 }
 
 // Function definition (body)
-...      calculate(uint8_t x, uint8_t y)
+ uint16_t calculate(uint8_t x, uint8_t y)
 {
     uint16_t result;    // result = x^2 + 2xy + y^2
 
-    result = x*x;
-    ...
-    ...
+result = (x*x)+(2*x*y)+(y*y);
+    
     return result;
 }
 ```
