@@ -75,15 +75,15 @@ See [schematic of Arduino Uno board](../../Docs/arduino_shield.pdf) in docs fold
 |   | 3 | Yes (Arduino pin -11) |
 |   | 4 | Yes (Arduino pin 12) |
 |   | 5 | Yes (Arduino pin 13) |
-|   | 6 | No  (Arduino pin 13) |
-|   | 7 | No  (Arduino pin 13) |
+|   | 6 | No   
+|   | 7 | No   
 | C | 0 | Yes (Arduino pin A0) |
 |   | 1 | Yes (Arduino pin A1) |
 |   | 2 | Yes (Arduino pin A2) |
 |   | 3 | Yes (Arduino pin A3) |
 |   | 4 | Yes (Arduino pin A4) |
 |   | 5 | Yes (Arduino pin A5) |
-|   | 6 | Doesnt have |
+|   | 6 | No |
 |   | 7 | Doesnt have |
 | D | 0 | Yes (Arduino pin RX<-0) |
 |   | 1 | Yes (Arduino pin TX->1) |
