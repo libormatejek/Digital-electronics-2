@@ -38,7 +38,9 @@ int main(void)
 {
     uint16_t result;    // result = x^2 + 2xy + y^2
 
-result = (x*x)+(2*x*y)+(y*y);
+result = (x*x);
+        (2*x*y);
+         (y*y);
     
     return result;
 }
