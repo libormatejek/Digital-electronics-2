@@ -1,13 +1,3 @@
-/***********************************************************************
- * 
- * GPIO library for AVR-GCC.
- * ATmega328P (Arduino Uno), 16 MHz, AVR 8-bit Toolchain 3.6.2
- *
- * Copyright (c) 2019-2020 Tomas Fryza
- * Dept. of Radio Electronics, Brno University of Technology, Czechia
- * This work is licensed under the terms of the MIT license.
- *
- **********************************************************************/
 
 /* Includes ----------------------------------------------------------*/
 #include "gpio.h"
@@ -66,7 +56,4 @@ uint8_t GPIO_read (volatile uint8_t *reg_name, uint8_t pin_num)
 	{ 
 		return 1 ;
 	}
-		
-		
-return pin_num;
 }
