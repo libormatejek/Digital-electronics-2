@@ -36,7 +36,7 @@ int main(void)
     GPIO_config_output(&DDRB, LED_GREEN);
     GPIO_write_low(&PORTB, LED_GREEN);
 
-    /* second LED */
+    /* RED LED */
     GPIO_config_output(&DDRB, LED_RED);
     GPIO_write_high(&PORTB, LED_RED);
 
