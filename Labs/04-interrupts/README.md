@@ -7,7 +7,7 @@
 Shields are boards that can be attached to an Arduino board, significantly expand its capabilities, and makes prototyping much faster. See schematic of [Multi-function shield](../../Docs/arduino_shield.pdf) and find out the connection of four LEDs (D1, D2, D3, D4) and three push buttons (S1-A1, S2-A2, S3-A3).
 
 &nbsp;
-![](images/conn.png)
+![](Images/conn.png)
 
 &nbsp;
 
