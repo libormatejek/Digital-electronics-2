@@ -33,5 +33,5 @@ Shields are boards that can be attached to an Arduino board, significantly expan
 | 0x001A | TIMER1_OVF | `TIMER1_OVF_vect` | Overflow of Timer/Counter1 value |
 | 0x0020 | TIMER0_OVF |  | Timer/Counter0 Overflow |
 | 0x0024 | USART_RX |  | USART Rx Complete |
-| 0x002A | ADC |  | ACD Converseion Complete |
+| 0x002A | ADC | `ADC_vect` | ACD Converseion Complete |
 | 0x0030 | TWI |  | 2-wire Serial Interface |
