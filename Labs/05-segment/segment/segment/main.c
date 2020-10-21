@@ -26,11 +26,11 @@ uint8_t singles = 0, decimals = 0 ;
 int main(void)
 {
     // Configure SSD signals
-    SEG_init();
+    	SEG_init();
     /* Configure 8-bit Timer/Counter0
      * Set prescaler and enable overflow interrupt */
-    TIM0_overflow_4ms();
-    TIM0_overflow_interrupt_enable();
+    	TIM0_overflow_4ms();
+    	TIM0_overflow_interrupt_enable();
     /* Configure 16-bit Timer/Counter1
      * Set prescaler and enable overflow interrupt */
 	TIM1_overflow_1s();
