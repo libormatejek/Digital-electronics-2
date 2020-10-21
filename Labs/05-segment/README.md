@@ -23,6 +23,8 @@ In the following table, write the binary values of the segments for display 0 to
 Use schematic of the [Multi-function shield](../../Docs/arduino_shield.pdf) and find out the connection of seven-segment display. What is the purpose of two shift registers 74HC595?
 Jeden registr aktivuje digit, druhý registr segment. 
 
+&nbsp;
+![](Images/conn.png)
 
 &nbsp;
 
