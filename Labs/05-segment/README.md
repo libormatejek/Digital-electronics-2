@@ -34,6 +34,12 @@ Use schematic of the [Multi-function shield](../../Docs/arduino_shield.pdf) and 
 
 &nbsp;
 
+| **Interrupt** | **Vector name** | **Pins** | **Operation** | **I/O register** | **Bit(s)** |
+| :-: | :-: | :-: | :-- | :-: | :-: |
+| Pin Change Interrupt 0 | `PCINT0_vect` | PB[7:0] | Interrupt enable<br>Select pins | PCICR<br>PCMSK0 | PCIE0<br>PCINT[7:0] |
+| Pin Change Interrupt 1 | `PCINT1_vect`|  | Interrupt enable<br>Select pins | <br> | <br> |
+| Pin Change Interrupt 2 | `PCINT2_vect`|  | Interrupt enable<br>Select pins | <br> | <br> |
+
 &nbsp;
 
 &nbsp;
