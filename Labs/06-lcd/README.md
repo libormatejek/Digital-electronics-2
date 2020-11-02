@@ -1,37 +1,15 @@
+# Lab 6: Display devices, LCD display
+
+### Learning objectives
+
+The purpose of the laboratory exercise is to understand the serial control of Hitachi HD44780-based LCD character display and how to define custom characters. Another goal is to learn how to read documentation for library functions and use them in your own project.
+
+![LCD-keypad shield](Images/arduino_uno_lcd-shield.jpg)
+
 
 ## Preparation tasks (done before the lab at home)
 
-Read the [7-segment display tutorial](https://www.electronics-tutorials.ws/blog/7-segment-display-tutorial.html) and find out what is the difference between:
-   * Common Cathode 7-segment display (CC SSD) The individual segments are illuminated by application of a “HIGH”, or logic “1” 
-   * Common Anode 7-segment display (CA SSD) The individual segments are illuminated by applying a ground, logic “0”
-
-In the following table, write the binary values of the segments for display 0 to 9 on a common anode 7-segment display.
-
-   | **Digit** | **A** | **B** | **C** | **D** | **E** | **F** | **G** | **DP** |
-   | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: |
-   | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 1 | 1 |
-   | 1 | 1 | 0 | 0 | 1 | 1 | 1 | 1 | 1 |
-   | 2 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 1 |
-   | 3 | 0 | 0 | 0 | 0 | 1 | 1 | 0 | 1 |
-   | 4 | 1 | 0 | 0 | 1 | 1 | 0 | 0 | 1 |
-   | 5 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 1 |
-   | 6 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 1 |
-   | 7 | 0 | 0 | 0 | 1 | 1 | 1 | 1 | 1 |
-   | 8 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 1 |
-   | 9 | 0 | 0 | 0 | 1 | 1 | 0 | 0 | 1 | 
-
-Use schematic of the [Multi-function shield](../../Docs/arduino_shield.pdf) and find out the connection of seven-segment display. What is the purpose of two shift registers 74HC595?
-&nbsp;
-
-&nbsp;
-
-**Jeden registr aktivuje digit, druhý registr segment.** 
-
-&nbsp;
-![](Images/conn.png)
-
-&nbsp;
-
+Use schematic of the [LCD keypad shield](../../Docs/arduino_shield.pdf) and find out the connection of LCD display. What data and control signals are used? What is the meaning of these signals?
 
 &nbsp;
 
@@ -39,3 +17,24 @@ Use schematic of the [Multi-function shield](../../Docs/arduino_shield.pdf) and 
 
 &nbsp;
 
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+   | **LCD signal(s)** | **AVR pin(s)** | **Description** |
+   | :-: | :-: | :-- |
+   | RS | PB0 | Register selection signal. Selection between Instruction register (RS=0) and Data register (RS=1) |
+   | R/W |  |  |
+   | E |  |  |
+   | D[3:0] |  |  |
+   | D[7:4] |  |  |
+
+What is the ASCII table? What are the values for uppercase letters `A` to `Z`, lowercase letters `a` to `z`, and numbers `0` to `9` in this table?
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
