@@ -167,18 +167,18 @@ void GPIO_write_high(volatile uint8_t *reg_name, uint8_t pin_num)
 int main(void)
 {
     // Configure SSD signals
-    SEG_init();
+    	SEG_init();
   f0:	0e 94 e8 00 	call	0x1d0	; 0x1d0 <SEG_init>
     /* Configure 8-bit Timer/Counter0
      * Set prescaler and enable overflow interrupt */
-    TIM0_overflow_4ms();
+    	TIM0_overflow_4ms();
   f4:	85 b5       	in	r24, 0x25	; 37
   f6:	8c 7f       	andi	r24, 0xFC	; 252
   f8:	85 bd       	out	0x25, r24	; 37
   fa:	85 b5       	in	r24, 0x25	; 37
   fc:	84 60       	ori	r24, 0x04	; 4
   fe:	85 bd       	out	0x25, r24	; 37
-    TIM0_overflow_interrupt_enable();
+    	TIM0_overflow_interrupt_enable();
  100:	ee e6       	ldi	r30, 0x6E	; 110
  102:	f0 e0       	ldi	r31, 0x00	; 0
  104:	80 81       	ld	r24, Z
