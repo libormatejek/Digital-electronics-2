@@ -20,7 +20,7 @@ Use schematic of the [LCD keypad shield](../../Docs/arduino_shield.pdf) and find
 What is the ASCII table? What are the values for uppercase letters `A` to `Z`, lowercase letters `a` to `z`, and numbers `0` to `9` in this table?
 
 &nbsp;
-
+![](images/asci.png)
 &nbsp;
 
 &nbsp;
