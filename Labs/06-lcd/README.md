@@ -24,3 +24,13 @@ What is the ASCII table? What are the values for uppercase letters `A` to `Z`, l
 &nbsp;
 
 &nbsp;
+
+| **Function name** | **Function parameters** | **Description** | **Example** |
+   | :-- | :-- | :-- | :-- |
+   | `lcd_init` | `LCD_DISP_OFF`<br>`LCD_DISP_ON`<br>`LCD_DISP_ON_CURSOR`<br>`LCD_DISP_ON_CURSOR_BLINK` | Display off<br>display on, cursor off<br>display on, cursor          on<br>display on, cursor on flashing | `lcd_init(LCD_DISP_OFF);`<br>`lcd_init(LCD_DISP_ON);`<br>`lcd_init(LCD_DISP_ON_CURSOR);`<br>`lcd_init(LCD_DISP_ON_CURSOR_BLINK)` |
+   | `lcd_clrscr` | void |Clear display and set cursor to home position. | `lcd_clrscr(void)` |
+   | `lcd_gotoxy` | `uint8_t x` <br> `uint8_t y`  |horizontal position (0: left most position) <br> vertical position (0: first line) | `void lcd_gotoxy(uint8_t x,uint8_ty)`	|
+   | `lcd_putc` | `char c` | Display character at current cursor position |` void lcd_putc (char c)` |
+   | `lcd_puts` | `s`|string to be displayed | `void lcd_puts (const char * s)`|
+   | `lcd_command` | `cmd	`| instruction to send to LCD controller, see HD44780 data sheet | `void lcd_command	(uint8_t cmd)`|
+   | `lcd_data` | `data	`| byte to send to LCD controller, see HD44780 data sheet| `void lcd_data	(	uint8_t 	data	)`|
