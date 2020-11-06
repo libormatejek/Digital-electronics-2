@@ -22,12 +22,14 @@
  *     See the C include lcd.h file for a description of each function
  *
  *****************************************************************************/
-
+#ifndef F_CPU
+#define F_CPU 16000000
+#endif
 #include <inttypes.h>
 #include <avr/io.h>
 #include <avr/pgmspace.h>
 #include <util/delay.h>
-#include <include/lcd.h>
+#include "lcd.h"
 
 
 /*
