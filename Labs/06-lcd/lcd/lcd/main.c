@@ -15,6 +15,7 @@
 #include "timer.h"          // Timer library for AVR-GCC
 #include "lcd.h"            // Peter Fleury's LCD library
 #include <stdlib.h>			// C library. Needed for conversion function
+#include <string.h>
 #include <math.h>        
 /* Function definitions ----------------------------------------------*/
 /**
@@ -90,6 +91,7 @@ int main(void)
  * LCD display every sixth overflow, ie approximately every 100 ms
  * (6 x 16 ms = 100 ms).
  */
+ 
 ISR(TIMER2_OVF_vect)
 {
     static uint8_t number_of_overflows = 0;
@@ -99,26 +101,20 @@ ISR(TIMER2_OVF_vect)
 	static uint8_t ten_secs = 0;
 	static uint8_t min = 0;
 	static uint8_t ten_min = 0;
-	static uint8_t x = 0;    
-	static uint8_t x2 = 0;
+	static uint8_t x = 0;    	
 	char lcd_string[2] = "  ";      // String for converting numbers by itoa()
-	char sec2[4] = "    ";
+	char buff[5] = "     ";
     number_of_overflows++;
 	number_of_overflows2++;
 	
 	if (number_of_overflows2 >=60 )
 	{  
 		number_of_overflows2=0;
-		x++;
-		x2=pow(x,2);
-		if(x >= 59)
-		{
-			x=0;
-		}
-		
+		x++;	
+		if(x >= 60) {x=0; lcd_gotoxy(12, 0);lcd_puts(" ");lcd_gotoxy(13, 0);lcd_puts(" ");lcd_gotoxy(14, 0);lcd_puts(" ");}	
+		itoa(x*x, buff,10);
 		lcd_gotoxy(11, 0);
-		itoa(x2, sec2, 10);
-		lcd_puts(sec2);
+		lcd_puts(buff);
 	}
 	
     if (number_of_overflows >= 6)
