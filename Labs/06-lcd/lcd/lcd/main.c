@@ -24,52 +24,48 @@
  */
 /* Variables ---------------------------------------------------------*/
 // Custom character definition using https://omerk.github.io/lcdchargen/
-uint8_t customChar[8] = {
-	0b11111,
-	0b01001,
-	0b00101,
-	0b10011,
-	0b11001,
-	0b10100,
-	0b11111,
+uint8_t customChar[] = {
+	// addr 0: .....
+	0b00000, 0b00000, 0b00000, 0b00000, 0b00000, 0b00000, 0b00000, 0b00000,
+	// addr 1: |....
+	0b10000, 0b10000, 0b10000, 0b10000, 0b10000, 0b10000, 0b10000, 0b10000,
+	// addr 2: |....
+	0b11000, 0b11000, 0b11000, 0b11000, 0b11000, 0b11000, 0b11000, 0b11000,
+	// addr 3: |....
+	0b11100, 0b11100, 0b11100, 0b11100, 0b11100, 0b11100, 0b11100, 0b11100,
+	// addr 4: |....
+	0b11110, 0b11110, 0b11110, 0b11110, 0b11110, 0b11110, 0b11110, 0b11110,
+	// addr 5: |....
+	0b11111, 0b11111, 0b11111, 0b11111, 0b11111, 0b11111, 0b11111, 0b11111
 	
 };
 int main(void)
 {
 	 // Initialize LCD display
 	lcd_init(LCD_DISP_ON);
-	 
-	 
+	
 	// Set pointer to beginning of CGRAM memory
 	lcd_command(1 << LCD_CGRAM);
-	for (uint8_t i = 0; i < 8; i++)
+	for (uint8_t i = 0; i < 42; i++)
 	{
-		 // Store all new chars to memory line by line
-		 lcd_data(customChar[i]);
+	// Store all new chars to memory line by line
+	lcd_data(customChar[i]);
 	}
 	// Set DDRAM address
 	lcd_command(1 << LCD_DDRAM);
+		
 	 
-	// Display first custom character
-	lcd_gotoxy(15, 0);
-	lcd_putc(0);
-	 
-   
-
     // Put string(s) at LCD display
     lcd_gotoxy(1, 0);
     lcd_puts("00:00.0");
-
-	lcd_gotoxy(11, 0);
-	lcd_putc('a');
-	lcd_gotoxy(1, 1);
-	lcd_putc('b');
 	lcd_gotoxy(11, 2);
 	lcd_putc('c');
     // Configure 8-bit Timer/Counter2 for Stopwatch
     // Set prescaler and enable overflow interrupt every 16 ms
 	TIM2_overflow_16ms()
 	TIM2_overflow_interrupt_enable()
+	TIM0_overflow_16ms()
+	TIM0_overflow_interrupt_enable()
 
     // Enables interrupts by setting the global interrupt mask
     sei();
@@ -170,4 +166,46 @@ ISR(TIMER2_OVF_vect)
 		
         
     }
+}
+ISR(TIMER0_OVF_vect)
+{
+	static uint8_t symbol = 0;
+	static uint8_t position = 0;
+	static uint8_t overflow = 0;
+
+	overflow++;
+	
+	if(overflow == 2){
+	symbol++;
+	overflow=0;
+	}
+			if (symbol == 5)
+			{
+				symbol = 0;
+				position++;
+				if (position == 6)
+				{
+					position = 0;
+					lcd_gotoxy(1, 1);
+					lcd_puts(" ");
+					lcd_gotoxy(2, 1);
+					lcd_puts(" ");
+					lcd_gotoxy(3, 1);
+					lcd_puts(" ");
+					lcd_gotoxy(4, 1);
+					lcd_puts(" ");
+					lcd_gotoxy(5, 1);
+					lcd_puts(" ");
+					lcd_gotoxy(6, 1);
+					lcd_puts(" ");
+					
+				}
+			
+			}
+	
+		lcd_gotoxy(1 + position, 1);
+		lcd_putc(symbol);
+		
+		
+		
 }
