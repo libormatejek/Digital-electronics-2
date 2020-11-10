@@ -20,34 +20,18 @@ According to the connection, calculate the voltage value on pin PC0[A0] if one b
 
 &nbsp;
 
-![Equation: Voltage divider](images/eq_divider3.png)
+![Equation: Voltage divider](images/eq_rest.png)
 
-&nbsp;
-
-![Equation: Voltage divider](images/eq_divider4.png)
-
-&nbsp;
-
-![Equation: Voltage divider](images/eq_divider5.png)
-
-&nbsp;
-
-What is the voltage value if none of the push buttons is pressed?
-
-![Equation: Voltage divider](images/eq_divider6.png)
-
-&nbsp;
 
 Calculate the ADC values for these voltages according to the following equation if reference is Vref=5V and number of bits for analog to digital conversion is n=10.
 
-![Equation: ADC conversion](Images/eq_adc.png)
 
    | **Push button** | **PC0[A0] voltage** | **ADC value (calculated)** | **ADC value (measured)** |
    | :-: | :-: | :-: | :-: |
-   | Right  | 0&nbsp;V | 0   |  |
+   | Right  | 0&nbsp;V | 0 |  |
    | Up     | 0.495&nbsp;V | 101 |  |
-   | Down   |       |     |  |
-   | Left   |       |     |  |
-   | Select |       |     |  |
-   | none   |       |     |  |
+   | Down   |  1.202&nbsp;V| 246 |  |
+   | Left   |  1.97&nbsp;V | 403 |  |
+   | Select |  3.18&nbsp;V | 650 |  |
+   | none   |  5&nbsp;V    | 1023|  |
 
