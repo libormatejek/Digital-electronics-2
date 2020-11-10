@@ -94,12 +94,12 @@ ISR(TIMER2_OVF_vect)
 	static uint8_t number_of_overflows2 = 0;
 	static uint8_t tens = 0;        // Tenths of a second
     static uint8_t secs = 0;		// Seconds
-	static uint8_t ten_secs = 0;
-	static uint8_t min = 0;
-	static uint8_t ten_min = 0;
-	static uint8_t x = 0;    	
+	static uint8_t ten_secs = 0;    // Tens of seconds
+	static uint8_t min = 0;			// Minutes
+	static uint8_t ten_min = 0;		// Tens of minutes
+	static uint8_t x = 0;    		// Secs for square
 	char lcd_string[2] = "  ";      // String for converting numbers by itoa()
-	char buff[5] = "     ";
+	char buff[2] = "  ";
     number_of_overflows++;
 	number_of_overflows2++;
 	
@@ -117,8 +117,6 @@ ISR(TIMER2_OVF_vect)
     {
         // Do this every 6 x 16 ms = 100 ms
         number_of_overflows = 0;
-
-		// WRITE YOUR CODE HERE
 		
 		tens ++;
 		if (tens > 9)
