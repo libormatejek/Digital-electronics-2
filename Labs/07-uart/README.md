@@ -6,37 +6,35 @@ Use schematic of the [LCD keypad shield](../../Docs/arduino_shield.pdf) and find
 
 &nbsp;
 
-&nbsp;
+![](images/butt.png)
 
 &nbsp;
 
-&nbsp;
 
-&nbsp;
 
 According to the connection, calculate the voltage value on pin PC0[A0] if one button is pressed at a time. In this case, the voltage on the pin is given by the [voltage divider](https://www.allaboutcircuits.com/tools/voltage-divider-calculator/), where resistors R3, R4, R5 and R6 are applied successively.
 
-![Equation: Voltage divider](Images/eq_divider1.png)
+![Equation: Voltage divider](images/eq_divider1.png)
 
-![Equation: Voltage divider](Images/eq_divider2.png)
-
-&nbsp;
-
-![Equation: Voltage divider](Images/eq_divider3.png)
+![Equation: Voltage divider](images/eq_divider2.png)
 
 &nbsp;
 
-![Equation: Voltage divider](Images/eq_divider4.png)
+![Equation: Voltage divider](images/eq_divider3.png)
 
 &nbsp;
 
-![Equation: Voltage divider](Images/eq_divider5.png)
+![Equation: Voltage divider](images/eq_divider4.png)
+
+&nbsp;
+
+![Equation: Voltage divider](images/eq_divider5.png)
 
 &nbsp;
 
 What is the voltage value if none of the push buttons is pressed?
 
-![Equation: Voltage divider](Images/eq_divider6.png)
+![Equation: Voltage divider](images/eq_divider6.png)
 
 &nbsp;
 
