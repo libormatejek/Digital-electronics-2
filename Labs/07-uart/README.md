@@ -34,4 +34,22 @@ Calculate the ADC values for these voltages according to the following equation 
    | Left   |  1.97&nbsp;V | 403 |  |
    | Select |  3.18&nbsp;V | 650 |  |
    | none   |  5&nbsp;V    | 1023|  |
+   
+   | **Operation** | **Register(s)** | **Bit(s)** | **Description** |
+   | :-: | :-- | :-- | :-- |
+   | Voltage reference | ADMUX | REFS1:0 | 01: AVcc voltage reference, 5V |
+   | Input channel |  | MUX3:0 | 0000: ADC0, 0001: ADC1, ... |
+   | ADC enable | ADCSRA |  |  |
+   | Start conversion |  |  |  |
+   | ADC interrupt enable |  |  |  |
+   | ADC clock prescaler |  | ADPS2:0 | 000: Division factor 2, 001: 2, 010: 4, ...|
+   | ADC result |  |  |  |
+   
+    | **Function name** | **Function parameters** | **Description** | **Example** |
+   | :-- | :-- | :-- | :-- |
+   | `uart_init` | `UART_BAUD_SELECT(9600, F_CPU)` | Initialize UART to 8N1 and set baudrate to 9600&nbsp;Bd | `uart_init(UART_BAUD_SELECT(9600, F_CPU));` |
+   | `uart_getc` |  |  |
+   | `uart_putc` |  |  |
+   | `uart_puts` |  |  |
+   
 
