@@ -48,7 +48,8 @@ Calculate the ADC values for these voltages according to the following equation 
    | **Function name** | **Function parameters** | **Description** | **Example** |
    | :-- | :-- | :-- | :-- |
    | `uart_init` | `UART_BAUD_SELECT(9600, F_CPU)` | Initialize UART to 8N1 and set baudrate to 9600&nbsp;Bd | `uart_init(UART_BAUD_SELECT(9600, F_CPU));` |
-   | `uart_getc` |  |  |
-   | `uart_putc` |  |  |
-   | `uart_puts` |  |  |
+   | `uart_getc` | `void`| Get received byte from ringbuffer. | `unsigned int uart_getc (void)`|
+   | `uart_putc` | `unsigned char data` | Put byte to ringbuffer for transmitting via UART. | `void uart_putc(unsigned char data)`|
+   | `uart_puts` | `s	string to be transmitted`| Put string to ringbuffer for transmitting via UART.|`void uart_puts(const char * s)`|	
+
 
