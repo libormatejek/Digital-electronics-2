@@ -34,11 +34,8 @@ int main(void)
     // Initialize LCD display
     lcd_init(LCD_DISP_ON);
     lcd_gotoxy(1, 0); lcd_puts("value:");
-    lcd_gotoxy(3, 1); lcd_puts("key:");
-    lcd_gotoxy(8, 0); lcd_puts("a");    // Put ADC value in decimal
-    lcd_gotoxy(13,0); lcd_puts("b");   // Put ADC value in hexadecimal
-    lcd_gotoxy(8, 1); lcd_puts("c");    // Put button name here
-
+    lcd_gotoxy(1, 1); lcd_puts("key:");
+    
     // Configure ADC to convert PC0[A0] analog value
 	
     // Set ADC reference to AVcc
@@ -48,11 +45,11 @@ int main(void)
 	ADMUX &= ~((1<<MUX0)|(1<<MUX1)|(1<<MUX2)|(1<<MUX3));
 	
     // Enable ADC module
-	ADCSRA |= ~(1<<ADEN);
+	ADCSRA |= (1<<ADEN);
     // Enable conversion complete interrupt
-	ADCSRA |= ~(1<<ADIE);
+	ADCSRA |= (1<<ADIE);
     // Set clock prescaler to 128
-	ADCSRA |= ~((1<<ADPS0)|(1<<ADPS1)|(1<<ADPS2));
+	ADCSRA |= ((1<<ADPS0)|(1<<ADPS1)|(1<<ADPS2));
 	
 
     // Configure 16-bit Timer/Counter1 to start ADC conversion
@@ -101,61 +98,84 @@ ISR(ADC_vect)
 	int16_t value = ADC;
 	char lcd_string[8] ="        ";
 	
-	 lcd_gotoxy(8, 0);
-	 lcd_puts(lcd_string);
-	
+
 	 itoa(value, lcd_string, 10);
      lcd_gotoxy(8, 0);
+	 lcd_puts("    ");
+	 lcd_gotoxy(8, 0);
 	 lcd_puts(lcd_string);
 	 
-	 //uart_puts("ADC value in decimal:");
-	 //uart_puts(lcd_string);
-	 //uart_puts("\r\n");
+	 if (value < 700)
+	 {
+	 uart_puts("ADC value in decimal:");
+	 uart_puts(lcd_string);
+	 uart_puts("\n");
+	 }
+	 
 	 
 	 lcd_gotoxy(13, 0);
 	 lcd_puts("   ");
-	 
 	 itoa(value, lcd_string, 16);
 	 lcd_gotoxy(13, 0);
 	 lcd_puts(lcd_string);
 	 
-	 lcd_gotoxy(8, 1);
+	 lcd_gotoxy(13, 1);
+	 lcd_puts("p:");
+	 
+	 if(value %2 == 0)
+	 {
+		lcd_gotoxy(15,1);
+		lcd_puts("1");
+	}
+	else
+	{
+		lcd_gotoxy(15,1);
+		lcd_puts("0");
+	}
+	 
+	 lcd_gotoxy(6, 1);
 	 lcd_puts("      ");
-	 lcd_gotoxy(8, 1);
-	 
-	 
+	 lcd_gotoxy(6, 1);
 	 //Print key
+	 
+	 
 	 if(value == 0)
 	 {
 		 lcd_puts("Right");
-		 lcd_gotoxy(8, 1);
+		 lcd_gotoxy(6, 1);
+		
 	 }
 	 
 	 if(90<value && value<150)
 	 {
 		 lcd_puts("Up");
-		 lcd_gotoxy(8, 1);
+		 lcd_gotoxy(6, 1);
+	
 	 }
 	 if(240<value && value<280)
 	 {
 		 lcd_puts("Down");
-		 lcd_gotoxy(8, 1);
+		 lcd_gotoxy(6, 1);
+		 
 	 }
 	 if(395<value && value<450)
 	 {
 		 lcd_puts("Left");
-		 lcd_gotoxy(8, 1);
+		 lcd_gotoxy(6, 1);
+		 
 	 }
 	 if(640<value && value<700)
 	 {
 		 lcd_puts("Select");
-		 lcd_gotoxy(8, 1);
+		 lcd_gotoxy(6, 1);
+		 
 	 }
 	 if(value > 1016)
 	 {
+		 
 		 lcd_puts("None");
-		 lcd_gotoxy(8, 1);
-	 }
+		 lcd_gotoxy(6, 1);
+		 }
 	 
 	 
 
