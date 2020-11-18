@@ -21,3 +21,18 @@ What is the general structure of I2C address and data frames?
    | 3 | data + Acknowledge |
    | 4 | data + Acknowledge |
    | 5 | data + Not Acknowledge |
+
+   | **Function** | **Parameter(s)** | **Description** |
+   | :-: | :-: | :-- |
+   | `twi_init` | None | Initialize TWI, enable internal pull-up resistors, and set SCL frequency |
+   | `twi_start` | uint8_t slave_address | Start communication on TWI bus and send address of TWI slave.Send one byte to TWI slave device. |
+   | `twi_write` | uint8_t data | Send one byte to TWI slave device. |
+   | `twi_read_ack` | None |  Read one byte from TWI slave device, followed by ACK. |
+   | `twi_read_nack` | None |Read one byte from TWI slave device, followed by NACK.|
+   | `twi_stop` | None | Stop communication |
+   
+   | **Address** | **TWI device** |
+    | :-: | :-: |
+    |  | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |
+    |  | &nbsp; |
+    |  | &nbsp; |
