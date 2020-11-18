@@ -99,30 +99,30 @@ ISR(ADC_vect)
 	char lcd_string[8] ="        ";
 	
 
-	 itoa(value, lcd_string, 10);
+	 itoa(value, lcd_string, 10); // value to dacimal
      lcd_gotoxy(8, 0);
-	 lcd_puts("    ");
+	 lcd_puts("    "); //clear area
 	 lcd_gotoxy(8, 0);
-	 lcd_puts(lcd_string);
+	 lcd_puts(lcd_string); // show decimal
 	 
-	 if (value < 700)
+	 if (value < 700) // reduce amount of sent uart data
 	 {
 	 uart_puts("ADC value in decimal:");
-	 uart_puts(lcd_string);
+	 uart_puts(lcd_string); // send uart value in decimal
 	 uart_puts("\n");
 	 }
 	 
 	 
 	 lcd_gotoxy(13, 0);
 	 lcd_puts("   ");
-	 itoa(value, lcd_string, 16);
+	 itoa(value, lcd_string, 16); // value to hexa
 	 lcd_gotoxy(13, 0);
-	 lcd_puts(lcd_string);
+	 lcd_puts(lcd_string); // show value in hexa
 	 
 	 lcd_gotoxy(13, 1);
 	 lcd_puts("p:");
 	 
-	 if(value %2 == 0)
+	 if(value %2 == 0) // get parity 
 	 {
 		lcd_gotoxy(15,1);
 		lcd_puts("1");
@@ -134,10 +134,10 @@ ISR(ADC_vect)
 	}
 	 
 	 lcd_gotoxy(6, 1);
-	 lcd_puts("      ");
+	 lcd_puts("      "); // clear key type area
 	 lcd_gotoxy(6, 1);
-	 //Print key
 	 
+	 //Print key - type of key conditions
 	 
 	 if(value == 0)
 	 {
