@@ -4,8 +4,8 @@ Use schematic of the [Arduino Uno](../../Docs/arduino_shield.pdf) board and find
 
    | **Signal** | **MCU pin** | **Arduino pin(s)** |
    | :-: | :-: | :-: |
-   | SDA (data)  |  |  |
-   | SCL (clock) |  |  |
+   | SDA (data)  | PC4  | PC4 |
+   | SCL (clock) | PC5  | PC5 |
 
 What is the general structure of I2C address and data frames?
 
