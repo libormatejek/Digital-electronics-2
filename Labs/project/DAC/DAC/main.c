@@ -24,8 +24,8 @@
 #endif
 uint16_t DTMF = 0;
 uint16_t x = 0;
-float T = 5;
-float Tvz=0.005;
+float T = 10;
+float Tvz=0.001;
 uint16_t duration = 0;
 uint8_t fceType = 10;//0..sin, 1..saw, 2..triangle
 uint16_t i = 0;
@@ -37,19 +37,23 @@ uint16_t i = 0;
  * and UART.
  */
 
+//function for generating signals values
 unsigned int fce(unsigned int i ) {
 	
 	if(fceType==0) 
-		return (unsigned int)(255*(1 + sin(i * 6.28 * Tvz/T))/2);
+		return (unsigned int)(255*(1 + sin(i * 6.28 * Tvz/T))/2); //returns sin values
 	else if(fceType==1)
-		return (unsigned int)(255 * fmod(i*Tvz,T)/T);
-	else if(fceType==2) {	
-		return (unsigned int)(255 * pow(-1,i/  ((int)(T/Tvz/2))) * 2 * fmod(i*Tvz,T)/T);
+		return (unsigned int)(255 * fmod(i*Tvz,T)/T);			  //returns saw values
+	else if(fceType==2) {										  //returns triangle values
+		int j = (int)(i*Tvz/(T/2));
+		float a = 2*fmod(i*Tvz,T)/T; 
+		a = 255*(j%2==0? a : 1 - a);   
+		return (unsigned int)a;	
 	}
-	else if(fceType==10)
+	else if(fceType==10)										  //stops signal generating
 	return (uint8_t)(0);
 }
-
+// function for recognition each bit values
 unsigned setByte(unsigned int num) {
 	if (num & (0x01 << 0)) GPIO_write_high(&PORTD,PD3); else GPIO_write_low(&PORTD,PD3);
 	if (num & (0x01 << 1)) GPIO_write_high(&PORTD,PD2); else GPIO_write_low(&PORTD,PD2);
@@ -83,7 +87,7 @@ int main(void)
 	TIM1_overflow_interrupt_enable();
 	TIM1_overflow_262ms();
 	TIM0_overflow_interrupt_enable();
-	TIM0_overflow_4ms();
+	TIM0_overflow_1ms();
 	// Configure ADC to convert PC0[A0] analog value
 	// Set ADC reference to AVcc
 	ADMUX |= (1<<REFS0);
@@ -124,12 +128,13 @@ ISR(TIMER1_OVF_vect)
 
 ISR(TIMER0_OVF_vect)
 {
-	uint16_t a =fce(i++);
-	setByte(a);	
+	uint16_t a =fce(i++); //calls for signal values
+	setByte(a);			  //calls for bit recognition
 }	
 
 ISR(TIMER2_OVF_vect)
-{
+	// DTMF generator
+{ 
 	x++;
 	if (x>=(DTMF/2)&&duration>1){
 		GPIO_toggle(&PORTB,PB6);
@@ -163,8 +168,8 @@ ISR(ADC_vect)
 	if (value>420 && value<432){DTMF=32;duration=300;}				//key7
 	if (value>290 && value<300){DTMF=29;duration=300;}				//key8
 	if (value>70 && value<80){DTMF=27;duration=300;}				//key9									
-	if (value>390 && value<410){Tvz=Tvz*2;}						//key*
-	if (value>240 && value<250){Tvz=Tvz/2;}						//key0
+	if (value>390 && value<410){T=T*2;}								//key*
+	if (value>240 && value<250){T=T/2;}								//key0
 	if (value==0)fceType=10;										//key#
 		if (fceType==0){lcd_gotoxy(12, 1); lcd_puts("sin");}
 		if (fceType==1){lcd_gotoxy(12, 1); lcd_puts("saw");}
