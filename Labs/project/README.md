@@ -30,6 +30,9 @@ Projekt postavený na mikrokontóleru Atmega328p z rodiny AVR. K němuž je při
 
 Jak ze schématu plyne jedná se o síť rezistorů, pomocí které jde jednoduše převést digitální hodnotu signálu na ekvivalentní analogovou hodnotu. Rozlišení takovéto sítě je závislé na počtu tzv. „žebříků“ (čím více žebříků, tím vyšší rozlišení). Síť rezistorů není nic jiného než propojení několika odporových děličů napětí za sebou a jejich výstup závisí na přiveděné digitální hodnotě z vstupu (v našem případě generované hodnotě z mikroprocesoru). 
 
+&nbsp;
+&nbsp;
+&nbsp;
 ## 4x3 keypad
 ![Project schedule](https://user-images.githubusercontent.com/60606149/101371116-ae9c3280-38aa-11eb-82f0-7d82470d5ae3.png)
 
