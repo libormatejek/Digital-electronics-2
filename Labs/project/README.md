@@ -1,4 +1,4 @@
-# R-2R ladder Digital to Analog Converter (DAC)
+# R-2R  Digitální - Analogový převodník (DAC)
 
 ## Zadání projektu
 Aplikace generátoru analogového signálu využívající 8bitový DAC; několik přednastavených typů signálů; displej; ovládání pomocí klávesnice 4x3; (možnost generování tónu DTMF, Dual-Tone Multiple Frequencies); odesílání zajímavých informací o stavu aplikace na UART.
