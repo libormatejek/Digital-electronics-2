@@ -24,7 +24,7 @@
 #endif
 uint16_t DTMF = 0;
 uint16_t x = 0;
-float T = 10;
+float T = 5;
 float Tvz=0.001;
 uint16_t duration = 0;
 uint8_t fceType = 10;//0..sin, 1..saw, 2..triangle
@@ -87,7 +87,7 @@ int main(void)
 	TIM1_overflow_interrupt_enable();
 	TIM1_overflow_262ms();
 	TIM0_overflow_interrupt_enable();
-	TIM0_overflow_1ms();
+	TIM0_overflow_4ms();
 	// Configure ADC to convert PC0[A0] analog value
 	// Set ADC reference to AVcc
 	ADMUX |= (1<<REFS0);
