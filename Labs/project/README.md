@@ -12,7 +12,7 @@ Aplikace generátoru analogového signálu využívající 8bitový DAC; několi
 ## Popis hardwaru
 ![Project schedule](https://github.com/libormatejek/Digital-electronics-2/blob/master/Labs/project/Images/schema.png?raw=true)
 
-Projekt postavený na mikrokontóleru Atmega328p z rodiny AVR. K němuž je připojen LCD displej s řadičem HD44780 pro zobrazení typu posílaného signálu a informace ohledně stisknuté klávesnici. Nastavený typ signálu bude možné nastavit pomocí 4x3 keypadu. Pro převod signálu z digitální hodnoty na analogovou bude využit 8 bitový tzv. žebříkový systém odporů na jehož výstup se připojí osciloskop na kterém se zobrazí průběh signálu. Hodnota stisku konkrétního tlačítka je vysíláno pomocí UARTu
+Projekt postavený na mikrokontóleru Atmega328p z rodiny AVR. K němuž je připojen LCD displej s řadičem HD44780 pro zobrazení typu posílaného signálu a informace ohledně stisknuté klávesnici. Nastavený typ signálu bude možné nastavit pomocí 4x3 keypadu. Pro převod signálu z digitální hodnoty na analogovou bude využit 8 bitový tzv. žebříkový systém odporů na jehož výstup se připojí osciloskop na kterém se zobrazí průběh signálu. Hodnota stisku konkrétního tlačítka je vysíláno pomocí UARTU.
 
 ### Tabulka zapojení
 
@@ -28,12 +28,12 @@ Projekt postavený na mikrokontóleru Atmega328p z rodiny AVR. K němuž je při
 ## R-2R rezistorová síť 
 ![Project schedule](https://user-images.githubusercontent.com/60606149/101371125-afcd5f80-38aa-11eb-9f3b-5953b6983c53.png)
 
-Jak ze schématu plyne jedná síť rezistorů pomocí, které jde jednoduše převést digitální hodnotu signálu na ekvivalentní analogovou výstup. Rozlišení takovéto sítě je závislé na počtu tzv. „žebříků“ (čím více žebříků, tím vyšší rozlišení). Síť rezistorů není nic jiného než propojení několika odporových děličů napětí za sebou a jejich výstup závisí na přiveděné digitální hodnotě z vstupu (v našem případě generované hodnotě z mikroprocesoru). 
+Jak ze schématu plyne jedná se o síť rezistorů, pomocí které jde jednoduše převést digitální hodnotu signálu na ekvivalentní analogovou hodnotu. Rozlišení takovéto sítě je závislé na počtu tzv. „žebříků“ (čím více žebříků, tím vyšší rozlišení). Síť rezistorů není nic jiného než propojení několika odporových děličů napětí za sebou a jejich výstup závisí na přiveděné digitální hodnotě z vstupu (v našem případě generované hodnotě z mikroprocesoru). 
 
 ## 4x3 keypad
 ![Project schedule](https://user-images.githubusercontent.com/60606149/101371116-ae9c3280-38aa-11eb-82f0-7d82470d5ae3.png)
 
-Pomocí využité klávesnice lze přednastavit 12 analogových hodnot. Výstup klávesnice je přiveden na port C0 mikroprocesoru. Tento port má funkci AD převodníku, kdy v rámci programu rozlišuje stisknuté tlačítko. Každá klávesa kombinuje specifické rezistory s děličem napětí, a tak vytváří specifické napětí na výstupu. S tímto napětím lze určit, zda je aktuálně stisknut jakýkoli a který konkrétní klíč. 
+Pomocí využité klávesnice lze přednastavit 12 analogových hodnot. Výstup klávesnice je přiveden na port C0 mikroprocesoru. Tento port má funkci AD převodníku, kdy v rámci programu rozlišuje stisknuté tlačítko. Každá klávesa kombinuje specifické rezistory a tvoří tak dělič napětí, který vytváří specifické napětí na výstupu. S tímto napětím lze určit, zda je aktuálně stisknut jakýkoli a který konkrétní klíč. 
 
 ## Popis programu
 Program je postaven na knihovnách ze cvičení- tedy timer.h, která zjednodušuje práci s časovači,gpio.h, jež umí ovládat i/o, lcd.h, která je převzata od Petera Fleuryho
@@ -100,7 +100,7 @@ ISR(TIMER2_OVF_vect)
  ## Diskuze
 Úkolem bylo zrealizovat DAC 8-bitový převodník pro přednastavené druhy signálů. Tato část úkolu se nám povedla splnit pomocí matematických funkcí. Metoda je však frekvenčně omezena. Dalším nedostatkem této metody je glitch u trojúhelníkového sígnálu, z důvodu dělení nulou.Tento problém se nám povedlo zminimalizovat.
 Výhodou našeho matematického řešení sígnálů je snadná rozšiřitelnost na vícebitový převodník. Zároveň bylo snadné implementovat změnu frekvence signálu, což je nad rámec zadání.   
-Signály a frekvence jsou voleny za pomocí 3x4 keypadu zapojeném pomocí ADC vstupu mikrokontroleru, zde se nevyskyují žádné problémy. Analogová přiváděná hodnota je zároveň s konverzí na digitální hodnotu vysílána přes UART. Tato aplikace je isnpirováná cvičením. 
+Signály a frekvence jsou voleny za pomocí 3x4 keypadu zapojeném pomocí ADC vstupu mikrokontroleru, zde se nevyskytují žádné problémy. Analogová přiváděná hodnota je zároveň s konverzí na digitální hodnotu vysílána přes UART. Tato aplikace je isnpirováná cvičením. 
 Dalším úkol byla implementace DTMF na již zmíněný keypad. Tato funkce je provedena za pomocí děličky interrupt timeru. DTMF tedy není generován součtem dvou frekvencí, jak říká teorie.
 Zapojení je doplněno o LCD displej, který zobrazuje aktuální generovaný průběh. Displej je programován dle cvičení.(knihovna od Petera Fleuryho)  
 
