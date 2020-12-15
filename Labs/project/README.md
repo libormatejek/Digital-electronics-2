@@ -95,9 +95,10 @@ ISR(TIMER2_OVF_vect)
  
  ## Diskuze
 Úkolem bylo zrealizovat DAC 8-bitový převodník pro přednastavené druhy signálů. Tato část úkolu se nám povedla splnit pomocí matematických funkcí. Metoda je však frekvenčně omezena. Dalším nedostatkem této metody je glitch u trojúhelníkového sígnálu, z důvodu dělení nulou.Tento problém se nám povedlo zminimalizovat.
-Výhodou našeho matematického řešení sígnálů je snadná rozšiřitelnost na vícebitový převodník. Zároveň bylo snadné implementovat změnu frekvence signálu, což je nad rámec zadání. 
-Signály jsou voleny za pomocí 3x4 keypadu zapojeném pomocí ADC vstupu mikrokontroleru, zde se nevyskyují žádné problémy. Analogová přiváděná hodnota je zároveň s konverzí na digitální hodnotu vysílána přes UART. Tato aplikace je isnpirováná cvičením. 
+Výhodou našeho matematického řešení sígnálů je snadná rozšiřitelnost na vícebitový převodník. Zároveň bylo snadné implementovat změnu frekvence signálu, což je nad rámec zadání.   
+Signály a frekvence jsou voleny za pomocí 3x4 keypadu zapojeném pomocí ADC vstupu mikrokontroleru, zde se nevyskyují žádné problémy. Analogová přiváděná hodnota je zároveň s konverzí na digitální hodnotu vysílána přes UART. Tato aplikace je isnpirováná cvičením. 
 Dalším úkol byla implementace DTMF na již zmíněný keypad. Tato funkce je provedena za pomocí děličky interrupt timeru. DTMF tedy není generován součtem dvou frekvencí, jak říká teorie.
+Zapojení je doplněno o LCD displej, který zobrazuje aktuální generovaný průběh. Displej je programován dle cvičení.(knihovna od Petera Fleuryho)  
 
 
  
