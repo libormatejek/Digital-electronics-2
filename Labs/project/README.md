@@ -93,7 +93,7 @@ ISR(TIMER2_OVF_vect)
  [Link for video simulation of signals](https://drive.google.com/file/d/1RberoMPwAhWS-ku1HDwhC8BtC2yYz-i1/view?usp=sharing)  
  [Link for video simulation of DTMF](https://drive.google.com/file/d/11BdKEo6V2hNEbUpJ4fsnwTo4pGqHie2j/view?usp=sharing)
  
- ## Video/Animation
+ ## Diskuze
 Úkolem bylo zrealizovat DAC 8-bitový převodník pro přednastavené druhy signálů. Tato část úkolu se nám povedla splnit pomocí matematických funkcí. Metoda je však frekvenčně omezena. Dalším nedostatkem této metody je glitch u trojúhelníkového sígnálu, z důvodu dělení nulou.Tento problém se nám povedlo zminimalizovat.
 Výhodou našeho matematického řešení sígnálů je snadná rozšiřitelnost na vícebitový převodník. Zároveň bylo snadné implementovat změnu frekvence signálu, což je nad rámec zadání. 
 Signály jsou voleny za pomocí 3x4 keypadu zapojeném pomocí ADC vstupu mikrokontroleru, zde se nevyskyují žádné problémy. Analogová přiváděná hodnota je zároveň s konverzí na digitální hodnotu vysílána přes UART. Tato aplikace je isnpirováná cvičením. 
