@@ -12,7 +12,7 @@ Aplikace generátoru analogového signálu využívající 8bitový DAC; několi
 ## Popis hardwaru
 ![Project schedule](https://github.com/libormatejek/Digital-electronics-2/blob/master/Labs/project/Images/schema.png?raw=true)
 
-Projekt postavený na mikrokontóleru Atmega328p z rodiny AVR. K němuž je připojen LCD displej s řadičem HD44780 pro zobrazení typu posílaného signálu a informace ohledně stisknuté klávesnici. Nastavený typ signálu bude možné nastavit pomocí 4x3 keypadu. Pro převod signálu z digitální hodnoty na analogovou bude využit 8 bitový tzv. žebříkový systém odporů na jehož výstup se připojí osciloskop na kterém se zobrazí průběh signálu. Hodnota stisku konkrétního tlačítka je vysíláno pomocí UARTU.
+Projekt je postavený na mikrokontóleru Atmega328p z rodiny AVR, k němuž je připojen LCD displej s řadičem HD44780 pro zobrazení typu posílaného signálu a informace ohledně stisknuté klávesnici. Nastavený typ signálu bude možné nastavit pomocí 4x3 keypadu. Pro převod signálu z digitální hodnoty na analogovou bude využit 8 bitový tzv. žebříkový systém odporů na jehož výstup se připojí osciloskop na kterém se zobrazí průběh signálu. Hodnota stisku konkrétního tlačítka je vysíláno pomocí UARTU.
 
 ### Tabulka zapojení
 
