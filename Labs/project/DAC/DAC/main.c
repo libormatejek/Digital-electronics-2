@@ -1,13 +1,11 @@
 /***********************************************************************
  * 
- * Analog-to-digital conversion with displaying result on LCD and 
- * transmitting via UART.
+ * Digital-to-analog conversion using R-2R, saved signals
+ * possible to choose by 3*4 keypad also with frequency.
+ * DTMF generation depanding on pressed key.  
  * ATmega328P (Arduino Uno), 16 MHz, AVR 8-bit Toolchain 3.6.2
  *
- * Copyright (c) 2018-2020 Tomas Fryza
- * Dept. of Radio Electronics, Brno University of Technology, Czechia
- * This work is licensed under the terms of the MIT license.
- * 
+ *Libor Matějek, Tomáš Stupka 
  **********************************************************************/
 
 /* Includes ----------------------------------------------------------*/
